@@ -19,3 +19,15 @@ export function processHeaders(headers: any, data: any): any {
   }
   return headers
 }
+
+export function parseHeaders(headers: string): any {
+  let parsed = Object.create(null)
+  headers.split('\r\n').forEach(item => {
+    let [key, val] = item.split(':')
+    key = key.trim().toLowerCase()
+    if (!key) return
+    if (val) val = val.trim()
+    parsed[key] = val
+  })
+  return parsed
+}
