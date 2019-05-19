@@ -61,6 +61,7 @@ export interface Axios {
 }
 
 export interface AxionsInstance extends Axios {
+  defaults: any
   <T = any>(config: AxiosRequestConfig): AxiosPromise<T>
   <T = any>(url: string, config?: AxiosRequestConfig): AxiosPromise<T>
 }
